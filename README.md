@@ -12,7 +12,7 @@ allprojects {
 }
 ```
 #### Normal
-[![1.0]]
+version:<b>1.0</b>
 ```gradle
 dependencies {
     implementation 'com.github.Droidhelios:DBInterface:x.y'
