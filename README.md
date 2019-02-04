@@ -38,3 +38,19 @@ In your <b>activity</b> class:
       DBManager.with(dbHelper)
                 .openDatabaseInterface(context);
 ```
+
+For gatting SupportSQLiteOpenHelper refrence from Room database
+#### Usage method
+```java 
+    public SupportSQLiteOpenHelper getDBHelper() {
+        return mRoomDatabase.getOpenHelper();
+    }
+```
+
+For gatting SQLiteOpenHelper refrence from SQLite database
+#### Usage method
+```java 
+    public SQLiteOpenHelper getDbHelper() {
+        return dbHelper;
+    }
+```
