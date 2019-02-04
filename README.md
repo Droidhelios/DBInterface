@@ -39,16 +39,16 @@ In your <b>activity</b> class:
                 .openDatabaseInterface(context);
 ```
 
+
+#### SQLite Helper Refrence
 For gatting SupportSQLiteOpenHelper refrence from Room database
-#### Usage method
 ```java 
     public SupportSQLiteOpenHelper getDBHelper() {
         return mRoomDatabase.getOpenHelper();
     }
 ```
 
-For gatting SQLiteOpenHelper refrence from SQLite database
-#### Usage method
+For gatting SQLiteOpenHelper refrence from SQLite database 
 ```java 
     public SQLiteOpenHelper getDbHelper() {
         return dbHelper;
