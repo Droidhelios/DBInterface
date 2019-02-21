@@ -1,5 +1,10 @@
 # DBInterface
-Show button with progress bar
+SQLite databases is tough while developing. You cannot view the tables, you don't know what is getting inserted into the tables and you can't update the data and see how your application responds to it.
+What if you had a database manager like oracle sql developr, mysql work bench for your application's SQLite database? This library gives you that.
+With this library you can manage the database of your android app from the app itself.
+You can view, insert, delete, update the tables of your app's SQLite database from your app.
+
+<b>Also Support Android Room Library</b>
   
 ## Setup
 
@@ -32,4 +37,20 @@ In your <b>activity</b> class:
 ```java 
       DBManager.with(dbHelper)
                 .openDatabaseInterface(context);
+```
+
+
+#### SQLite Helper Refrence
+For gatting SupportSQLiteOpenHelper refrence from Room database
+```java 
+    public SupportSQLiteOpenHelper getDBHelper() {
+        return mRoomDatabase.getOpenHelper();
+    }
+```
+
+For gatting SQLiteOpenHelper refrence from SQLite database 
+```java 
+    public SQLiteOpenHelper getDbHelper() {
+        return dbHelper;
+    }
 ```
