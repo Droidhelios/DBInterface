@@ -1,7 +1,5 @@
 package com.dbinterface;
 
-import androidx.sqlite.db.SupportSQLiteDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +10,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 public class DBManager {
 

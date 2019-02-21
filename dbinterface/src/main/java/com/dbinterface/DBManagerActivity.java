@@ -33,7 +33,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import androidx.core.content.ContextCompat;
+
 public class DBManagerActivity extends Activity implements OnItemClickListener {
+
+    private static final String TABLE_HEADER_COLOR = "#EBF9A4";
+    private static final String TABLE_BODY_COLOR = "#FAFAFA";
 
     //a static class to save cursor,table values etc which is used by functions to share data in the program.
     static class indexInfo {
@@ -90,8 +95,8 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
 
         //the first row of layout which has a text view and spinner
         final LinearLayout firstrow = new LinearLayout(DBManagerActivity.this);
-        firstrow.setPadding(0, 10, 0, 20);
-        LinearLayout.LayoutParams firstrowlp = new LinearLayout.LayoutParams(0, 150);
+        firstrow.setPadding(20, 20, 20, 20);
+        LinearLayout.LayoutParams firstrowlp = new LinearLayout.LayoutParams(0, 140);
         firstrowlp.weight = 1;
 
         TextView maintext = new TextView(DBManagerActivity.this);
@@ -102,6 +107,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
         select_table.setLayoutParams(firstrowlp);
 
         firstrow.addView(maintext);
+        firstrow.setBackgroundColor(ContextCompat.getColor(DBManagerActivity.this, R.color.colorPrimary));
         firstrow.addView(select_table);
         mainLayout.addView(firstrow);
 
@@ -113,11 +119,12 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
         //the main table layout where the content of the sql tables will be displayed when user selects a table
         tableLayout = new TableLayout(DBManagerActivity.this);
         tableLayout.setHorizontalScrollBarEnabled(true);
+        tableLayout.setBackgroundColor(Color.parseColor("#D4D4D4"));
         hsv.addView(tableLayout);
 
         //the second row of the layout which shows number of records in the table selected by user
         final LinearLayout secondrow = new LinearLayout(DBManagerActivity.this);
-        secondrow.setPadding(0, 20, 0, 10);
+        secondrow.setPadding(20, 20, 20, 10);
         LinearLayout.LayoutParams secondrowlp = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         secondrowlp.weight = 1;
         TextView secondrowtext = new TextView(DBManagerActivity.this);
@@ -145,7 +152,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
 
         final TextView help = new TextView(DBManagerActivity.this);
         help.setText("Click on the row below to update values or delete the tuple");
-        help.setPadding(0, 5, 0, 5);
+        help.setPadding(20, 5, 20, 5);
 
         // the spinner which gives user a option to add new row , drop or delete table
         final Spinner spinnertable = new Spinner(DBManagerActivity.this);
@@ -178,6 +185,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
         tvmessage = new TextView(DBManagerActivity.this);
 
         tvmessage.setText("Error Messages will be displayed here");
+        tvmessage.setPadding(10, 0, 10, 10);
         String Query = "SELECT name _id FROM sqlite_master WHERE type ='table'";
         tvmessage.setTextSize(18);
         mainLayout.addView(tvmessage);
@@ -246,7 +254,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
             }
         });
         //layout parameters for each row in the table
-        tableRowParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        tableRowParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         tableRowParams.setMargins(0, 0, 2, 0);
 
         // a query which returns a cursor with the list of tables in the database.We use this cursor to populate spinner in the first row
@@ -648,11 +656,11 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
                         tableheader.setPadding(0, 2, 0, 2);
                         for (int k = 0; k < c2.getColumnCount(); k++) {
                             LinearLayout cell = new LinearLayout(DBManagerActivity.this);
-                            cell.setBackgroundColor(Color.WHITE);
+                            cell.setBackgroundColor(Color.parseColor(TABLE_HEADER_COLOR));
                             cell.setLayoutParams(tableRowParams);
                             final TextView tableheadercolums = new TextView(getApplicationContext());
                             // tableheadercolums.setBackgroundDrawable(gd);
-                            tableheadercolums.setPadding(0, 0, 4, 3);
+                            tableheadercolums.setPadding(10, 0, 10, 3);
                             tableheadercolums.setText("" + c2.getColumnName(k));
                             tableheadercolums.setTextColor(Color.parseColor("#000000"));
 
@@ -840,7 +848,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
         }
 
         updaterowsv.addView(lp);
-        //after the layout has been created display it in a alert dialog  
+        //after the layout has been created display it in a alert dialog
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -1068,7 +1076,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
 
             for (int j = 0; j < c3.getColumnCount(); j++) {
                 LinearLayout cell = new LinearLayout(this);
-                cell.setBackgroundColor(Color.WHITE);
+                cell.setBackgroundColor(Color.parseColor(TABLE_BODY_COLOR));
                 cell.setLayoutParams(tableRowParams);
                 final TextView columsView = new TextView(getApplicationContext());
                 String column_data = "";
@@ -1079,7 +1087,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
                 }
                 columsView.setText(column_data);
                 columsView.setTextColor(Color.parseColor("#000000"));
-                columsView.setPadding(0, 0, 4, 3);
+                columsView.setPadding(10, 0, 10, 3);
                 cell.addView(columsView);
                 tableRow.addView(cell);
 
