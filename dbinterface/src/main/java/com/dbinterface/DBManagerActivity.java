@@ -141,6 +141,7 @@ public class DBManagerActivity extends Activity implements OnItemClickListener {
         final EditText customquerytext = new EditText(this);
         customquerytext.setVisibility(View.GONE);
         customquerytext.setHint("Enter Your Query here and Click on Submit Query Button .Results will be displayed below");
+        customquerytext.setText("select * from tableName where columnName = '1'");
         mainLayout.addView(customquerytext);
 
         final Button submitQuery = new Button(DBManagerActivity.this);
