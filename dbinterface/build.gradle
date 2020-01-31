@@ -25,6 +25,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // Dependency for Room
-    implementation 'androidx.room:room-runtime:2.1.0-alpha03'
+    implementation 'androidx.room:room-runtime:2.2.3'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
 
 }

@@ -36,7 +36,7 @@ public class DBManager {
     }
 
 
-    public static synchronized DBManager with(SupportSQLiteOpenHelper dbHelper){
+    public static synchronized DBManager withRoom(SupportSQLiteOpenHelper dbHelper){
         if(_instance == null){
             _instance = new DBManager(dbHelper);
         }
